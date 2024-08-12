@@ -8,20 +8,23 @@ import { useNavigate } from 'react-router-dom';
 const Login = () => {
 
     const [showPassword, setShowPassword] = useState(false)
-    const inputRef = useRef(null);
+    const usernameRef = useRef(null);
+    const passwordRef = useRef(null);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
     const contohUsername = 'admin';
     const contohPassword = 'admin120824';
 
+    const handleClear = () => {
+        // Mengosongkan input pada username dan password
+        usernameRef.current.value = '';
+        passwordRef.current.value = '';
+      };
+
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
     };
-
-    const handleOnClear = () => {
-        inputRef.current.value = ''
-    }
 
     const handleOnSubmit = (e) => {
         e.preventDefault();
@@ -41,11 +44,11 @@ const Login = () => {
                 <h1 className='text-white text-center text-3xl font-bold'>Login</h1>
                 <form className='mt-4' onSubmit={handleOnSubmit}>
                     <label htmlFor="username" className='text-white block'>Username</label>
-                    <input title='masukkan username anda' type='text' id='username' ref={inputRef} className='border border-blue-500 outline-none text-white py-1 px-2 rounded-md bg-transparent ring-0 w-48 xs:w-72 xxs:w-52 sm:w-80' onChange={(e) => setUsername(e.target.value)} />
+                    <input required title='masukkan username anda' type='text' id='username' ref={usernameRef} className='border border-blue-500 outline-none text-white py-1 px-2 rounded-md bg-transparent ring-0 w-48 xs:w-72 xxs:w-52 sm:w-80' onChange={(e) => setUsername(e.target.value)} />
                     <br />
                     <label htmlFor="password" className='text-white block mt-3'>Password</label>
                     <div className='bg-transparent flex items-center rounded-md border border-blue-500'>
-                        <input title='masukkan password anda' type={showPassword ? "text" : "password"} ref={inputRef} id='password' className='outline-none text-white py-1 px-2 rounded-md bg-transparent ring-0 w-5/6' onChange={(e) => setPassword(e.target.value)} />
+                        <input required title='masukkan password anda' type={showPassword ? "text" : "password"} ref={passwordRef} id='password' className='outline-none text-white py-1 px-2 rounded-md bg-transparent ring-0 w-5/6' onChange={(e) => setPassword(e.target.value)} />
                         <button
                             type="button"
                             onClick={togglePasswordVisibility}
@@ -59,7 +62,7 @@ const Login = () => {
                     </div>
                     <div className='flex justify-center gap-7 mt-5'>
                         <button title='login ke akun anda' type='submit' className='bg-blue-500 px-3 rounded-md py-1 text-white font-semibold'>Login</button>
-                        <button title='bersihkan form' onClick={handleOnClear} className='bg-green-500 px-3 rounded-md py-1 text-white font-semibold'>Clear</button>
+                        <button onClick={handleClear} title='bersihkan form' className='bg-green-500 px-3 rounded-md py-1 text-white font-semibold' type='button'>Clear</button>
                     </div>
                 </form>
             </div>
