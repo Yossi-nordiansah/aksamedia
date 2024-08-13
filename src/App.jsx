@@ -6,7 +6,7 @@ import PrivateRoute from './pages/PrivateRoute';
 
 const App = () => {
   return (
-    <Router>
+    <Router basename="/aksamedia">
       <Routes>
         <Route path="/aksamedia/" element={<Login />} />
         <Route path="/aksamedia/home" element={

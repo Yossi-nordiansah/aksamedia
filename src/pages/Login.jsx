@@ -127,30 +127,11 @@ const Login = () => {
                 <h1 className='text-white text-center text-3xl font-bold'>Login</h1>
                 <form className='mt-4' onSubmit={handleOnSubmit}>
                     <label htmlFor="username" className='text-white block'>Username</label>
-                    <input 
-                        required 
-                        title='masukkan username anda' 
-                        onInput={(e) => e.target.setCustomValidity("")} 
-                        onInvalid={(e) => e.target.setCustomValidity("Username wajib di isi")} 
-                        type='text' 
-                        id='username' 
-                        ref={usernameRef} 
-                        className='border border-blue-500 outline-none text-white py-1 px-2 rounded-md bg-transparent ring-0 w-48 xs:w-72 xxs:w-52 sm:w-80' 
-                        onChange={(e) => setUsername(e.target.value)} 
-                    />
+                    <input required title='masukkan username anda' onInput={(e) => e.target.setCustomValidity("")} onInvalid={(e) => e.target.setCustomValidity("Username wajib di isi")} type='text' id='username' ref={usernameRef} className='border border-blue-500 outline-none text-white py-1 px-2 rounded-md bg-transparent ring-0 w-48 xs:w-72 xxs:w-52 sm:w-80' onChange={(e) => setUsername(e.target.value)} />
                     <br />
                     <label htmlFor="password" className='text-white block mt-3'>Password</label>
                     <div className='bg-transparent flex items-center rounded-md border border-blue-500'>
-                        <input 
-                            required 
-                            onInvalid={(e) => e.target.setCustomValidity("Password wajib di isi")} 
-                            onInput={(e) => e.target.setCustomValidity("")} 
-                            title='masukkan password anda' 
-                            type={showPassword ? "text" : "password"} 
-                            ref={passwordRef} 
-                            id='password' 
-                            className='outline-none text-white py-1 px-2 rounded-md bg-transparent ring-0 w-5/6' 
-                            onChange={(e) => setPassword(e.target.value)} 
+                        <input required onInvalid={(e) => e.target.setCustomValidity("Password wajib di isi")} onInput={(e) => e.target.setCustomValidity("")} title='masukkan password anda' type={showPassword ? "text" : "password"} ref={passwordRef} id='password' className='outline-none text-white py-1 px-2 rounded-md bg-transparent ring-0 w-5/6' onChange={(e) => setPassword(e.target.value)} 
                         />
                         <button
                             type="button"
