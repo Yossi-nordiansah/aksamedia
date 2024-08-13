@@ -1,19 +1,23 @@
-import { useState } from 'react'
+import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Login from './pages/Login';
 import Home from './pages/Home';
+import PrivateRoute from './pages/PrivateRoute';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/aksamedia/" Component={Login}/>
-        <Route path="/aksamedia/home/" Component={Home}/>
-      </Routes>  
+        <Route path="/aksamedia/" element={<Login />} />
+        <Route path="/aksamedia/home" element={
+            <PrivateRoute>
+              <Home />
+            </PrivateRoute>
+          } 
+        />
+      </Routes>
     </Router>
-  )
-}
+  );
+};
 
-export default App
+export default App;
