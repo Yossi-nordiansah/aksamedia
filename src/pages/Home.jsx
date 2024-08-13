@@ -54,6 +54,7 @@ const Home = () => {
       setAlamat('');
       loadItems(searchTerm);
     }
+    setShowFormInput(false)
   };
 
   const handleUpdateItem = async (item) => {
@@ -103,26 +104,26 @@ const Home = () => {
   };
 
   return (
-    <div className="relative h-screen">
+    <div className="relative h-screen dark:bg-[#00004d]">
       <Navbar />
-      <div className="flex mx-auto mt-5 w-60 xs:w-72 border-2 rounded-lg border-gray-500 overflow-hidden">
+      <div className="flex mx-auto mt-5 w-60 xs:w-72 border-2 rounded-lg border-gray-500 dark:border-white overflow-hidden">
         <input id='search' type="text" className="w-11/12 px-2 py-1 outline-none bg-transparent" placeholder="Cari Nama..." value={searchTerm} onChange={handleSearch}/>
-        <img src={search_icon} alt="search icon" className="bg-slate-400 px-2" />
+        <img src={search_icon} alt="search icon" className="bg-slate-400 dark:bg-white px-2" />
       </div>
       <button onClick={handleshowFormInput} className="bg-green-400 text-white font-semibold py-1 px-2 rounded-md mx-auto block mt-4">
         Input Data
       </button>
 
       <table className="table-auto mx-auto w-5/6 border-collapse border border-gray-300 mt-5 xs:text-sm text-[11px]">
-        <thead>
-          <tr className="bg-gray-200">
+        <thead className='dark: bg-slate-900'>
+          <tr className="bg-gray-200 dark:bg-slate-900 dark:text-white">
             <th className="border border-gray-300 p-2">Nama</th>
             <th className="border border-gray-300 p-2">Jabatan</th>
             <th className="border border-gray-300 p-2">Alamat</th>
             <th className="border border-gray-300 p-2">Aksi</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className='dark:text-white'>
           {currentItems.map((item) => (
             <tr key={item.id} className="text-center">
               {editingItem?.id === item.id ? (

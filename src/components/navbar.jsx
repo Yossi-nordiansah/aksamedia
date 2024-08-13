@@ -5,6 +5,7 @@ import account_icon from '../assets/account-svgrepo-com.svg';
 import setting_icon from '../assets/setting-icon.svg';
 import logout_icon from '../assets/logout-icon.svg';
 import { useState } from 'react';
+import DarkMode from './DarkMode';
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -47,10 +48,11 @@ const Navbar = () => {
   };
 
   return (
-    <div className='w-full h-14 bg-blue-700 flex items-center justify-between px-2 sm:px-5'>
-      <img src={logo} alt="" className='h-8 sm:h-12' />
+    <div className='w-full h-14 bg-blue-700 dark:bg-blue-950 flex items-center justify-between px-2 sm:px-5'>
+      <img src={logo} alt="" className='h-6 sm:h-12' />
+      <DarkMode/>
       <div className='flex items-center cursor-pointer' onClick={handleToggleDropdownMenu}>
-        <p className='text-white text-sm xs:text-base xs:mr-3'>{nama}</p>
+        <p className='text-white text-[10px] xs:text-base xs:mr-3'>{nama}</p>
         <img src={account_icon} alt="" className='hidden xs:block h-12' />
         {toggleDropdownMenu && (
           <div className="absolute right-0 mt-36 w-48 bg-white border border-gray-300 rounded-md shadow-lg z-10">
