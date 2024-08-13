@@ -107,7 +107,7 @@ const Home = () => {
     <div className="relative h-screen dark:bg-[#00004d]">
       <Navbar />
       <div className="flex mx-auto mt-5 w-60 xs:w-72 border-2 rounded-lg border-gray-500 dark:border-white overflow-hidden">
-        <input id='search' type="text" className="w-11/12 px-2 py-1 outline-none bg-transparent" placeholder="Cari Nama..." value={searchTerm} onChange={handleSearch}/>
+        <input id='search' type="text" className="w-11/12 dark:bg-gray-800 dark:text-white px-2 py-1 outline-none bg-transparent" placeholder="Cari Nama..." value={searchTerm} onChange={handleSearch}/>
         <img src={search_icon} alt="search icon" className="bg-slate-400 dark:bg-white px-2" />
       </div>
       <button onClick={handleshowFormInput} className="bg-green-400 text-white font-semibold py-1 px-2 rounded-md mx-auto block mt-4">
